@@ -1,0 +1,12 @@
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Datos\bin\Debug\Datos.dll.config
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Datos\bin\Debug\Datos.dll
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Datos\bin\Debug\Datos.pdb
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Datos\bin\Debug\EntityFramework.dll
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Datos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Datos\bin\Debug\EntityFramework.xml
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Datos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Datos\obj\Debug\Datos.csprojAssemblyReference.cache
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Datos\obj\Debug\Datos.csproj.CopyComplete
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Datos\obj\Debug\Datos.dll
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Datos\obj\Debug\Datos.pdb

@@ -1,0 +1,15 @@
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Negocio\bin\Debug\Negocio.dll.config
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Negocio\bin\Debug\Negocio.dll
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Negocio\bin\Debug\Datos.dll
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Negocio\bin\Debug\EntityFramework.dll
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Negocio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Negocio\bin\Debug\Datos.pdb
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Negocio\bin\Debug\Datos.dll.config
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Negocio\bin\Debug\EntityFramework.xml
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Negocio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Negocio\obj\Debug\Services.csprojAssemblyReference.cache
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Negocio\obj\Debug\Services.csproj.CoreCompileInputs.cache
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Negocio\obj\Debug\Services.csproj.CopyComplete
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Negocio\obj\Debug\Negocio.dll
+C:\Users\Programador02\Documents\ARCAST\Api_Liga_NetFramework\Negocio\obj\Debug\Negocio.pdb

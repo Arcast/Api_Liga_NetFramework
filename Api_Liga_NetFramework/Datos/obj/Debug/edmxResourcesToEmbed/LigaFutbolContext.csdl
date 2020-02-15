@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LigaFutbolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Gasto">
+    <Key>
+      <PropertyRef Name="IdGasto" />
+    </Key>
+    <Property Name="IdGasto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Concepto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Observacion" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+    <Property Name="Moneda" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Monto" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="IdLiga" Type="Int32" />
+    <NavigationProperty Name="Liga" Relationship="Self.Fk_LigaGasto" FromRole="Gasto" ToRole="Liga" />
+  </EntityType>
+  <EntityType Name="Liga">
+    <Key>
+      <PropertyRef Name="IdLiga" />
+    </Key>
+    <Property Name="IdLiga" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoLiga" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NombreLiga" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="IdRepresentanteLiga" Type="Int32" />
+    <NavigationProperty Name="Gasto" Relationship="Self.Fk_LigaGasto" FromRole="Liga" ToRole="Gasto" />
+    <NavigationProperty Name="Pago" Relationship="Self.Fk_LigaPago" FromRole="Liga" ToRole="Pago" />
+    <NavigationProperty Name="RepresentanteLiga" Relationship="Self.Fk_LigaRepresentante" FromRole="Liga" ToRole="RepresentanteLiga" />
+  </EntityType>
+  <EntityType Name="Pago">
+    <Key>
+      <PropertyRef Name="IdPago" />
+    </Key>
+    <Property Name="IdPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Concepto" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+    <Property Name="Monto" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Moneda" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="IdLiga" Type="Int32" />
+    <NavigationProperty Name="Liga" Relationship="Self.Fk_LigaPago" FromRole="Pago" ToRole="Liga" />
+  </EntityType>
+  <EntityType Name="RepresentanteLiga">
+    <Key>
+      <PropertyRef Name="IdRepresentanteLiga" />
+    </Key>
+    <Property Name="IdRepresentanteLiga" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombres" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Cedula" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="Int32" />
+    <Property Name="Cargo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Liga" Relationship="Self.Fk_LigaRepresentante" FromRole="RepresentanteLiga" ToRole="Liga" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="Fk_LigaGasto">
+    <End Role="Liga" Type="Self.Liga" Multiplicity="0..1" />
+    <End Role="Gasto" Type="Self.Gasto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Liga">
+        <PropertyRef Name="IdLiga" />
+      </Principal>
+      <Dependent Role="Gasto">
+        <PropertyRef Name="IdLiga" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_LigaPago">
+    <End Role="Liga" Type="Self.Liga" Multiplicity="0..1" />
+    <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Liga">
+        <PropertyRef Name="IdLiga" />
+      </Principal>
+      <Dependent Role="Pago">
+        <PropertyRef Name="IdLiga" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_LigaRepresentante">
+    <End Role="RepresentanteLiga" Type="Self.RepresentanteLiga" Multiplicity="0..1" />
+    <End Role="Liga" Type="Self.Liga" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RepresentanteLiga">
+        <PropertyRef Name="IdRepresentanteLiga" />
+      </Principal>
+      <Dependent Role="Liga">
+        <PropertyRef Name="IdRepresentanteLiga" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LigaFutbolEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Gasto" EntityType="Self.Gasto" />
+    <EntitySet Name="Liga" EntityType="Self.Liga" />
+    <EntitySet Name="Pago" EntityType="Self.Pago" />
+    <EntitySet Name="RepresentanteLiga" EntityType="Self.RepresentanteLiga" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="Fk_LigaGasto" Association="Self.Fk_LigaGasto">
+      <End Role="Liga" EntitySet="Liga" />
+      <End Role="Gasto" EntitySet="Gasto" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_LigaPago" Association="Self.Fk_LigaPago">
+      <End Role="Liga" EntitySet="Liga" />
+      <End Role="Pago" EntitySet="Pago" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_LigaRepresentante" Association="Self.Fk_LigaRepresentante">
+      <End Role="RepresentanteLiga" EntitySet="RepresentanteLiga" />
+      <End Role="Liga" EntitySet="Liga" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(LigaFutbolModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(LigaFutbolModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
